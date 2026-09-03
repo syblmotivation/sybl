@@ -1,0 +1,415 @@
+/*
+ * SYBL public pages.
+ *
+ * The palette is lifted from src/theme/colors.ts so the store-facing pages and
+ * the app look like the same product. Dark, high contrast, one scarce amber.
+ *
+ * Deliberately self-contained: no web fonts, no analytics, no third-party
+ * requests of any kind. A privacy policy that phones home is a bad privacy
+ * policy, and this way the pages are also fast and work offline once cached.
+ */
+
+:root {
+  --background: #0b0b0d;
+  --surface: #141417;
+  --border: #26262b;
+  --border-strong: #35353d;
+  --text: #f2f2f0;
+  --text-muted: #8a8a93;
+  --text-faint: #6e6e76;
+  --accent: #e0a03c;
+  --accent-dim: #8a6526;
+  --accent-soft: rgba(224, 160, 60, 0.12);
+  --danger: #d9705f;
+  --danger-soft: rgba(217, 112, 95, 0.1);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 1.5rem 6rem;
+  background: var(--background);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------------- masthead */
+
+header.masthead {
+  padding: 4rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.wordmark {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 0 1.25rem;
+}
+
+.wordmark:hover,
+.wordmark:focus-visible {
+  color: var(--accent);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+.lede {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 34rem;
+}
+
+.updated {
+  font-size: 0.875rem;
+  color: var(--text-faint);
+  margin: 1.75rem 0 0;
+}
+
+/* ------------------------------------------------------------------ blocks */
+
+h2 {
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  margin: 3.25rem 0 0.9rem;
+  padding-top: 0.25rem;
+}
+
+h3 {
+  font-size: 1.02rem;
+  margin: 2rem 0 0.6rem;
+  color: var(--text);
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.35rem;
+}
+
+li {
+  margin-bottom: 0.55rem;
+}
+
+li::marker {
+  color: var(--text-faint);
+}
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-dim);
+}
+
+a:hover,
+a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 3.5rem 0;
+}
+
+/* ------------------------------------------------------------------- cards */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.6rem;
+  margin: 0 0 1rem;
+}
+
+/*
+ * A card heading keeps the card's own size whatever its level in the document
+ * outline, so the outline can stay correct without the design shifting.
+ */
+.card h2,
+.card h3 {
+  margin-top: 0;
+}
+
+.card h2 {
+  font-size: 1.02rem;
+  margin-bottom: 0.6rem;
+}
+
+.card p:last-child,
+.card ul:last-child,
+.card ol:last-child {
+  margin-bottom: 0;
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  border-bottom: 0;
+  color: inherit;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  border-color: var(--border-strong);
+  background: #17171b;
+}
+
+.card-link h2,
+.card-link h3 {
+  color: var(--accent);
+}
+
+.notice {
+  border-left: 2px solid var(--accent-dim);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.3rem;
+  margin: 0 0 1.5rem;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+.warn {
+  border-left-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ------------------------------------------------------------------- steps */
+
+ol.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  counter-reset: step;
+}
+
+ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 0 3rem;
+  margin-bottom: 1.6rem;
+  min-height: 2rem;
+}
+
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent-dim);
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+ol.steps > li strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+ol.steps p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------ tables */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 32rem;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: var(--surface);
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td:first-child {
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+td + td {
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------ footer */
+
+footer {
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-faint);
+}
+
+footer nav {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+footer a {
+  color: var(--text-muted);
+  border-bottom-color: var(--border-strong);
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  position: static;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+@media (max-width: 34rem) {
+  body {
+    font-size: 1rem;
+    padding: 0 1.15rem 4rem;
+  }
+
+  header.masthead {
+    padding-top: 2.5rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+  }
+}
+
+/*
+ * Respect a reader who has asked their system for less motion. The only
+ * movement on the site is the card hover transition, so this removes it.
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
