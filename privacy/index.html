@@ -22,7 +22,7 @@
           get rid of all of it.
         </p>
         <p class="updated">
-          Last updated September 15, 2026 · Applies to the SYBL
+          Last updated September 16, 2026 · Applies to the SYBL
           mobile app for iOS and Android.
         </p>
       </header>
@@ -143,6 +143,16 @@
                   calculated on our server, never sent up from your phone.
                 </td>
               </tr>
+              <tr>
+                <td>Reminder setting</td>
+                <td>
+                  Whether you have turned the daily reminder on, and the time
+                  you chose for it. Off unless you turn it on. The reminder
+                  itself is scheduled on your own phone as a local
+                  notification: no push service is used, no device or push
+                  token is collected, and no record of what was sent is kept.
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -155,8 +165,10 @@
           </li>
           <li>
             <strong>No contacts, photos, camera, microphone, files or health
-            data.</strong> The Android build requests exactly one system
-            permission — internet access — and the iOS build requests none.
+            data.</strong> The Android build requests internet access and, only
+            if you turn the daily reminder on, permission to show
+            notifications. The iOS build asks for notification permission only
+            at that same moment, and for nothing else.
           </li>
           <li>
             <strong>No advertising or tracking identifiers.</strong> No
@@ -267,9 +279,11 @@
         <p>
           Deletion is immediate and permanent. It removes your account, your
           email address, your display name and time zone, your onboarding
-          answers, your focus areas, every task set and task, your XP, level,
-          streaks and your whole XP history. It also ends your session on every
-          device you were signed in on. Nothing is deactivated, archived or held
+          answers, your focus areas, every task set and task, the tasks you set
+          aside and the reasons you gave, your world, boss and relic
+          progression, your reminder setting, your XP, level, streaks and your
+          whole XP history. It also ends your session on every device you were
+          signed in on. Nothing is deactivated, archived or held
           back, and signing up again with the same email starts an entirely new
           account from zero.
         </p>
