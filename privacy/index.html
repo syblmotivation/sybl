@@ -22,7 +22,7 @@
           get rid of all of it.
         </p>
         <p class="updated">
-          Last updated September 16, 2026 · Applies to the SYBL
+          Last updated September 19, 2026 · Applies to the SYBL
           mobile app for iOS and Android.
         </p>
       </header>
@@ -70,7 +70,8 @@
                 <td>Email address</td>
                 <td>
                   It identifies your account and is where the sign-up
-                  verification code is sent. You cannot use SYBL without one.
+                  verification code is sent, and where a password-reset code
+                  is sent if you ask for one. You cannot use SYBL without one.
                 </td>
               </tr>
               <tr>
@@ -212,9 +213,10 @@
             which is the point of the app.
           </li>
           <li>
-            <strong>To send you the one email the account needs</strong>: the
-            six-digit sign-up verification code, and the same code again if you
-            ask us to resend it. There are no marketing emails.
+            <strong>To send you the emails the account needs</strong>: the
+            six-digit sign-up verification code, and a six-digit password-reset
+            code if you ask for one — plus either code again if you ask us to
+            resend it. Nothing else is ever sent. There are no marketing emails.
           </li>
         </ol>
         <p>
@@ -225,8 +227,9 @@
 
         <h2>Who else processes your data</h2>
         <p>
-          SYBL is a small app and relies on two service providers. They act on
-          our instructions and may not use your data for their own purposes.
+          SYBL is a small app and relies on three service providers. They act
+          on our instructions and may not use your data for their own
+          purposes.
         </p>
 
         <div class="card">
@@ -235,9 +238,26 @@
             Your account and all of the data in the table above is stored in a
             Supabase-hosted PostgreSQL database in Ireland
             (Supabase&rsquo;s West EU region). Supabase also handles sign-in
-            and sends the verification email. Access is restricted at the
-            database level so that one account can only ever read its own
-            rows.
+            and produces the verification and password-reset emails. Access is
+            restricted at the database level so that one account can only ever
+            read its own rows.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Resend — email delivery</h3>
+          <p>
+            SYBL uses Resend to deliver sign-up verification and password-reset
+            emails from no-reply@syblapp.com. To deliver these messages, SYBL
+            sends Resend the recipient email address and the authentication
+            email content, including the verification or password-reset code,
+            sender information, and subject line. Resend may retain
+            delivery-related records needed to operate its email service. SYBL
+            does not send Resend your tasks, XP, streaks, goals, profile
+            progress, or other in-app activity. Resend does not have direct
+            access to SYBL&rsquo;s Supabase database. Email delivery for
+            syblapp.com is configured through Resend&rsquo;s EU region
+            (Ireland).
           </p>
         </div>
 
@@ -258,6 +278,9 @@
           phone and those servers over an encrypted HTTPS connection. Your login
           session is also stored on your own device so that you are not signed
           out every time you close the app; removing the app removes that copy.
+          Authentication emails are routed through Resend&rsquo;s email
+          infrastructure as described above. Other SYBL account and progression
+          data is not sent to Resend.
         </p>
         <p>
           We keep your data for as long as your account exists. We do not have a
